@@ -1,2 +1,3 @@
-# ES6 Basics
+# alx-backend-javascript
 
+ES6 Basics
