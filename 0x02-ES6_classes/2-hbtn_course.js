@@ -18,15 +18,15 @@ export default class HolbertonCourse {
     return this._length;
   }
 
-  set length(length) {
-    if (typeof (length) !== 'number') throw new TypeError('Length must be a number');
-    this._length = length;
+ 
+  set students(students) {
+    if (!Array.isArray(students)) throw new TypeError('Students must be an array');
+    students.forEach((x) => {
+      if (typeof (x) !== 'string') throw new TypeError('Student must be a string');
+    });
+    this._students = students;
   }
-
-  get students() {
-    return this._students;
-  }
-
+}
 
 export default class HolbertonCourse {
     constructor (name, length, students) {
