@@ -1,2 +1,3 @@
-export default function getStudentIdsSum(students) {acc + curVal.id, 0);
+export default function getStudentIdsSum(students) {
+  return students.reduce((acc, curVal) => acc + curVal.id, 0);
 }
