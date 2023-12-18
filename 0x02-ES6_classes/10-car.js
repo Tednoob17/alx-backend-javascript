@@ -33,8 +33,5 @@ export default class Car {
     return this;
   }
 
-  cloneCar() {
-    const NewCar = this.constructor[Symbol.species] || this.constructor;
-    return new NewCar();
   }
 }
