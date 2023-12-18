@@ -1,15 +1,25 @@
+const mocha = require('mocha');
+const { expect, assert } = require('chai');
 const sinon = require('sinon');
-const { expect } = require('chai');
+
+const utils = require('./utils');
 const sendPaymentRequestToApi = require('./3-payment');
-const Utils = require('./utils');
+const { spy } = require('sinon');
 
 describe('sendPaymentRequestToApi', () => {
-    it('validate the usage of the Utils function', () => {
-        const spyUtils = sinon.stub(Utils, 'calculateNumber');
-        const consoleSpy = sinon.spy(console, 'log');
+  it('should call calculateNumber', () => {
+    const stub = sinon.stub(utils, 'calculateNumber');
+    stub.returns(10);
 
-        spyUtils.withArgs('SUM', 100, 20).returns(10);
-        consoleSpy.withArgs('The total is: 10');
+    const spy = sinon.spy(console, 'log');
 
-    });
+    const apiRequestRes = sendPaymentRequestToApi(100, 20);
+
+    expect(stub.calledOnceWithExactly('SUM', 100, 20)).to.equal(true);
+    expect(spy.calledOnceWithExactly('The total is: 10'));
+    expect(utils.calculateNumber('SUM', 100, 20)).to.equal(apiRequestRes);
+
+    stub.restore();
+    spy.restore();
+  });
 });
