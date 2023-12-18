@@ -13,7 +13,7 @@ export default class HolbertonClass {
   }
 
   get location() {
-    return this._location;
+    
   }
 
   set location(location) {
