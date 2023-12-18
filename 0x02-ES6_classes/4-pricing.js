@@ -18,7 +18,7 @@ export default class Pricing {
   get currency() {
     return this._currency;
   }
-nccjlmfc;sz,'crf ml.
+
   set currency(currency) {
     if (!(currency instanceof Currency)) throw new TypeError('Currency must be a Currency');
     this._currency = currency;
@@ -28,7 +28,4 @@ nccjlmfc;sz,'crf ml.
     return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
 
-  static convertPrice(amount, converstionRate) {
-    return amount * converstionRate;
-  }
 }
